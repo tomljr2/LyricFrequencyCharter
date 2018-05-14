@@ -18,6 +18,10 @@ for l in range(len(lyrics)):
    lyrics[l] = lyrics[l].lower()
    lyrics[l] = regex.sub('',lyrics[l])
 
+#Check if the number of lyrics are less than the predefined number
+if NUMLYRICS > len(Counter(lyrics).most_common()):
+   NUMLYRICS = len(Counter(lyrics).most_common())
+
 #Get the lyrics in order of frequency
 lyricsKeys = [Counter(lyrics).most_common(NUMLYRICS)[i][0]
               for i in range(NUMLYRICS)]
